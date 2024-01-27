@@ -1,5 +1,7 @@
 #!/bin/bash
 
+workingDirectory="$PWD"
+
 # What to do if url repo given
 handleUrlRepo() {
     echo "Attempting to add remote GitHub repository..."
@@ -35,23 +37,34 @@ then
   exit 2
 fi
 
-while getopts "iu:p" option; do
+while getopts "w:iu:pg" option; do
     case $option in
+        w)
+            workingDirectory="$workingDirectory"/"$OPTARG"
+            ;;
         i) 
             # Initialize git with main branch
+            cd "$workingDirectory"
             git init -b main
             ;;
         u)
             # Confirm URL, add remote repository, and push
+            cd "$workingDirectory"
             urlToRepo=$OPTARG
             confrimURL $urlToRepo
             handleUrlRepo $urlToRepo
             ;;
         p)
+            cd "$workingDirectory"
             git add .
             git commit -m "Automated commit" -m "Automated commit from newproject-git script."
             git push -u origin main
             ;;
+        g)
+            cd "$workingDirectory"
+            echo -e ".vscode\nbin" >> .gitignore
+            ;;
+
         ?) 
             echo "Invalid option."
             exit 2
