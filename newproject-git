@@ -47,6 +47,15 @@ while getopts "w:iu:pg" option; do
             cd "$workingDirectory"
             git init -b main
             ;;
+        g)
+            # Add a .gitignore with default files ignored
+            cd "$workingDirectory"
+            if [ -f "$workingDirectory/.gitignore" ]; then
+                echo "Git Ignore already exists. No changes were made."
+            else
+                echo -e ".vscode\nbin" > .gitignore
+            fi
+            ;;
         u)
             # Confirm URL, add remote repository, and push
             cd "$workingDirectory"
@@ -55,14 +64,11 @@ while getopts "w:iu:pg" option; do
             handleUrlRepo $urlToRepo
             ;;
         p)
+            # Stage, commit, and push everything to remote repository
             cd "$workingDirectory"
             git add .
             git commit -m "Automated commit" -m "Automated commit from newproject-git script."
             git push -u origin main
-            ;;
-        g)
-            cd "$workingDirectory"
-            echo -e ".vscode\nbin" >> .gitignore
             ;;
 
         ?) 
