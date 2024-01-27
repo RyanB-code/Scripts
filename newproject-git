@@ -35,7 +35,7 @@ then
   exit 2
 fi
 
-while getopts "iu:c" option; do
+while getopts "iu:p" option; do
     case $option in
         i) 
             # Initialize git with main branch
@@ -46,6 +46,11 @@ while getopts "iu:c" option; do
             urlToRepo=$OPTARG
             confrimURL $urlToRepo
             handleUrlRepo $urlToRepo
+            ;;
+        p)
+            git add .
+            git commit -m "Automated commit" -m "Automated commit from newproject-git script."
+            git push -u origin main
             ;;
         ?) 
             echo "Invalid option."
