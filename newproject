@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Variables
+projName=$1
+defaultProjDirectory="/usr/local/share/projects"
+
+relativeTemplatesDirectoryName="newproject-files"
+tasksTemplate="tasks-linux.txt"
+
+
+# If no argument exists, exit
+if [ "$#" -eq 0 ]
+then
+  echo "No arguments provided"
+  exit 2
+fi
+
+
+# Replace spaces in Project Name
+projName=$(echo "$projName" | tr " " "-")
+
+# Confirm project name
+read -p "Confirm name as \"$projName\" [Y/N]: " input
+case $input in
+    [yY]*)
+        # Continue execution
+        ;;
+    *)
+        echo "Aborted project creation"
+        exit 2
+        ;;
+esac
+
+# Ensure project directory exists
+if [ -d ${defaultProjDirectory} ]
+then
+    # Create project directory in specified path
+    projPath=${defaultProjDirectory}/${projName}
+    mkdir "$projPath"
+else
+    echo "Project directory does not exist"
+    exit 2
+fi
+
+# Create subdirectories
+mkdir "$projPath/include"
+mkdir "$projPath/bin"
+mkdir "$projPath/lib"
+mkdir "$projPath/docs"
+mkdir "$projPath/src"
+mkdir "$projPath/builds"
+mkdir "$projPath/.vscode"
+
+# Test template for tasks.json to exist, then copy template to create tasks.json
+if [ -f "$relativeTemplatesDirectoryName/$tasksTemplate" ]
+then
+
+    # Copy tempalte file for tasks.json into correct folder
+    cp "$relativeTemplatesDirectoryName/$tasksTemplate" "$projPath/.vscode/tasks.json"
+else
+    echo "No template for tasks.json was found so it was not created."
+fi
+
+
+
+# Open in VS Code
+code "$projPath"

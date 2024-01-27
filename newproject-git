@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# What to do if url repo given
+handleUrlRepo() {
+    echo "Attempting to add remote GitHub repository..."
+
+
+    if git remote add origin "$1"; then
+        echo "Remote repsoitory successfully added."
+    else 
+        echo "Could not add remote repository with that URL."
+        exit 2
+    fi
+}
+
+# Confirm URL
+confrimURL() {
+    read -p "Confirm URL as \"$1\" [Y/N]: " input
+    case $input in
+        [yY]*)
+            # Continue execution
+            ;;
+        *)
+            echo "Remote repository for the URL was not added"
+            exit 2
+            ;;
+    esac
+}
+
+
+# If no argument exists, exit
+if [ "$#" -eq 0 ]
+then
+  echo "No arguments provided"
+  exit 2
+fi
+
+while getopts "iu:c" option; do
+    case $option in
+        i) 
+            # Initialize git with main branch
+            git init -b main
+            ;;
+        u)
+            # Confirm URL, add remote repository, and push
+            urlToRepo=$OPTARG
+            confrimURL $urlToRepo
+            handleUrlRepo $urlToRepo
+            ;;
+        ?) 
+            echo "Invalid option."
+            exit 2
+            ;;
+    esac
+done
