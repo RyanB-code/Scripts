@@ -1,10 +1,24 @@
 site_name: Scripts Documentation
 site_url: https://example.com/
+nav:
+  - Home: index.md
+  - newproject:
+    - Overview: newproject/newproject.md
+    - Usage: newproject/HowToUse.md
+    - Setup: newproject/setup.md
+  - newproject-git: newproject-git/newproject-git.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
 theme:
   name: material
   palette:
     # Automatic mode
     - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: blue
+      accent: green
       toggle:
         icon: material/brightness-auto
         name: Switch to system preference
@@ -31,7 +45,6 @@ theme:
     - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
     - navigation.path
     - navigation.indexes
-
+    - navigation.expand
