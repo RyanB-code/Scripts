@@ -8,7 +8,7 @@ Documentation can be found at [RyanB-code.github.io/Scripts](RyanB-code.github.i
 The site includes all documentation for the scripts in this project.
 
 Topics covered include:
-  - Setuo
+  - Setup
   - Usage
   - Analysis of application
   - Purpose and description of each script
