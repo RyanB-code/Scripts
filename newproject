@@ -15,6 +15,7 @@ then
   exit 2
 fi
 
+# Override the default directory
 if [ "$#" -eq 2 ]
 then
   projDirectory=$2
@@ -65,7 +66,7 @@ else
     echo "No template for tasks.json was found so it was not created."
 fi
 
-echo "Project can be found at \"$projPath"
+echo "Project can be found at \"$projPath\""
 echo "Opening in VS Code..."
 
 # Open in VS Code
