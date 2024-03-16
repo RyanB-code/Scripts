@@ -1,7 +1,0 @@
-Copyright 2024 Bradley Ryan
-
-The purpose of this repository is for me to easily access scripts that I want to put on any Linux distribution. 
-
-For commands and their related directories, copy them together and place into the desired location. Normally, this would be /usr/local/bin. 
-
-Scripts are way easier to deal with than a fully fledged C++ project, and no need for compilation on every desired machine.  
