@@ -2,7 +2,7 @@
 
 # Variables
 projName=$1
-defaultProjDirectory="/usr/local/share/projects"
+projDirectory="/mnt/NAS/1. Project Related/Project Source Directories"
 
 relativeTemplatesDirectoryName="newproject-files"
 tasksTemplate="tasks-linux.txt"
@@ -15,12 +15,16 @@ then
   exit 2
 fi
 
+if [ "$#" -eq 2 ]
+then
+  projDirectory=$2
+fi
 
-# Replace spaces in Project Name
+echo "Directory is set to \"$projDirectory\""
 projName=$(echo "$projName" | tr " " "-")
 
 # Confirm project name
-read -p "Confirm name as \"$projName\" [Y/N]: " input
+read -p "Confirm name as \"$projName\" [y/N]: " input
 case $input in
     [yY]*)
         # Continue execution
@@ -32,13 +36,13 @@ case $input in
 esac
 
 # Ensure project directory exists
-if [ -d ${defaultProjDirectory} ]
+if [ -d "$projDirectory" ]
 then
     # Create project directory in specified path
-    projPath=${defaultProjDirectory}/${projName}
+    projPath=${projDirectory}/${projName}
     mkdir "$projPath"
 else
-    echo "Project directory does not exist"
+    echo "Project directory \"$projDirectory\" does not exist."
     exit 2
 fi
 
@@ -61,7 +65,8 @@ else
     echo "No template for tasks.json was found so it was not created."
 fi
 
-
+echo "Project can be found at \"$projPath"
+echo "Opening in VS Code..."
 
 # Open in VS Code
 code "$projPath"
