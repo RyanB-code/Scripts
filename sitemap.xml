@@ -2,27 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2024-03-16</lastmod>
+         <lastmod>2024-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/newproject/HowToUse/</loc>
-         <lastmod>2024-03-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://example.com/newproject/newproject/</loc>
-         <lastmod>2024-03-16</lastmod>
+         <loc>https://example.com/newproject/overview/</loc>
+         <lastmod>2024-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/newproject/setup/</loc>
-         <lastmod>2024-03-16</lastmod>
+         <lastmod>2024-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/newproject-git/newproject-git/</loc>
-         <lastmod>2024-03-16</lastmod>
+         <loc>https://example.com/newproject/usage/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/newproject-git/overview/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/newproject-git/setup/</loc>
+         <lastmod>2024-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/newproject-git/usage/</loc>
+         <lastmod>2024-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
