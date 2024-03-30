@@ -1,18 +1,18 @@
-# Overview
+# Overview for newproject
 
-## Name
+## Purpose
 
 newproject - the fast way to setup necessary files and directories for C++ in VSCode
 
 ## Description
 
-Newproject is a way to easily create necessary directories for a C++ project with a `tasks.json` file for use in VSCode using the g++ compiler.
+This script is a way to easily create necessary directories for a C++ project with a `tasks.json` file for use in VSCode using the g++ compiler.
 
 Can be used in conjunction with [newproject-git](../newproject-git/newproject-git.md) script to initialize git and create a remote GitHub repository for all project files.
 
 ## Detailed Analysis
 
-A guide can be found [here](HowToUse.md) to interact with the script. This section will not go over usage, just an analysis of what the script does.
+A guide can be found [here](usage.md) to interact with the script. This section will not go over usage, just an analysis of what the script does.
 
 The script will create a new directory in a specified location with the following subdirectories:
 
