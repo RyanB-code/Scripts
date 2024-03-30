@@ -3,8 +3,8 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - newproject:
-    - Overview: newproject/newproject.md
-    - Usage: newproject/HowToUse.md
+    - Overview: newproject/overview.md
+    - Usage: newproject/usage.md
     - Setup: newproject/setup.md
   - newproject-git: newproject-git/newproject-git.md
 
