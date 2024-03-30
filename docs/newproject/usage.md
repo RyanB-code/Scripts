@@ -1,4 +1,4 @@
-# How To Use
+# How to Use
 
 ## Provide a Project Name
 

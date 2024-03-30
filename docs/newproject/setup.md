@@ -8,8 +8,8 @@ To use the script, the only requisites are that the `newproject` executable is i
 
 To use the script as a normal linux command, follow these steps
 
-1. Move `newproject` script and `newproject-files` directory into `/bin/bash`
+1. Move `newproject` script and `newproject-files` directory into `/bin`
 2. Change script permissions to be executable. 
-    - Only allow the owner to read, write, and execute permissions by doing `chmod 775 newproject`. All others will only be able to read and execute.
+    - Only allow the owner to read, write, and execute permissions by doing `chmod 755 newproject`. All others will only be able to read and execute.
 3. Run the script
 
