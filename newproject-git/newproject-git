@@ -40,6 +40,7 @@ fi
 while getopts "w:iu:pg" option; do
     case $option in
         w)
+            # Set working directory
             workingDirectory="$workingDirectory"/"$OPTARG"
             ;;
         i) 
@@ -51,13 +52,13 @@ while getopts "w:iu:pg" option; do
             # Add a .gitignore with default files ignored
             cd "$workingDirectory"
             if [ -f "$workingDirectory/.gitignore" ]; then
-                echo "Git Ignore already exists. No changes were made."
+                echo ".gitignore already exists. No changes were made."
             else
                 echo -e ".vscode\nbin" > .gitignore
             fi
             ;;
         u)
-            # Confirm URL, add remote repository, and push
+            # Confirm URL, add remote repository
             cd "$workingDirectory"
             urlToRepo=$OPTARG
             confrimURL $urlToRepo
