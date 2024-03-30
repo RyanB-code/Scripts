@@ -4,6 +4,7 @@
 projName=$1
 projDirectory="/mnt/NAS/1. Project Related/Project Source Directories"
 
+scriptDirectory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 relativeTemplatesDirectoryName="newproject-files"
 tasksTemplate="tasks-linux.txt"
 
@@ -55,6 +56,11 @@ mkdir "$projPath/docs"
 mkdir "$projPath/src"
 mkdir "$projPath/builds"
 mkdir "$projPath/.vscode"
+
+# Copy temaplated tasks.json to exist
+
+# Change to parent of script directory to search for template files
+cd ${scriptDirectory}
 
 # Test template for tasks.json to exist, then copy template to create tasks.json
 if [ -f "$relativeTemplatesDirectoryName/$tasksTemplate" ]
