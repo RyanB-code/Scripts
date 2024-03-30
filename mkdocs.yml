@@ -4,9 +4,12 @@ nav:
   - Home: index.md
   - newproject:
     - Overview: newproject/overview.md
-    - Usage: newproject/usage.md
     - Setup: newproject/setup.md
-  - newproject-git: newproject-git/newproject-git.md
+    - Usage: newproject/usage.md
+  - newproject-git:
+    - Overview: newproject-git/overview.md
+    - Setup: newproject-git/setup.md
+    - Usage: newproject-git/usage.md
 
 markdown_extensions:
   - toc:
