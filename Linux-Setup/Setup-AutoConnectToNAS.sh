@@ -2,7 +2,6 @@
 
 # Assumptions 
 #  1. Arg 1 = credentials file path
-# 
 
 # If no argument exists, exit
 if [ "$#" -eq 0 ]
