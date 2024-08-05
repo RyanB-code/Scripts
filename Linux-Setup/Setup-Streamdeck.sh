@@ -4,7 +4,6 @@
 # Assumptions
 #   1. Run with sudo privileges
 
-
 if apt install streamdeck-ui 1>/dev/null 2>&1; then
     echo "Successfully installed streamdeck-ui."
 else
@@ -29,5 +28,6 @@ else
     exit 2
 fi
 
-echo "Downloaded successfully."
-echo "Run using \"streamdeck\" command."
+echo "Download successful."
+
+
