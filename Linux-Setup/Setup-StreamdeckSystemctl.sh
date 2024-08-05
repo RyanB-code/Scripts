@@ -4,8 +4,24 @@
 sysdConfigDir=$HOME/.local/share/systemd/user/
 sysdFile=$HOME/.local/share/systemd/user/streamdeck.service
 sysdFileTemplate="Config Files/StreamdeckSysdConfig.txt"
+bashRC=$HOME/.bashrc
 
 echo "Now setting up streamdeck as a systemd service."
+
+
+# ==========================================
+# Add to bash RC file
+echo ""
+echo "Editing .bashrc file..."
+echo "# Added by script for setup of streamdeck-ui" >>$bashRC
+echo "PATH=$PATH:$HOME/.local/bin" >>$bashRC
+
+
+# ==========================================
+# Create udev rule to discover elgato devices
+echo "Creating udev rules..."
+sudo sh -c 'echo "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"0fd9\", TAG+=\"uaccess\"" > /etc/udev/rules.d/70-streamdeck.rules'
+sudo udevadm trigger
 
 # ==========================================
 # Make service directory
