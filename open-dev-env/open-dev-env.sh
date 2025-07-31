@@ -1,7 +1,8 @@
-#! /bin/bash
+#!/bin/bash
 
-firefox -new-tab "https://github.com/" -new-tab "https://en.cppreference.com/w/" &
+gnome-terminal -- bash -c "/opt/nvim-linux-x86_64/bin/nvim /mnt/NAS/1-Project-Related/Project-Source-Directories/ ; exec bash"
 
-flatpak run md.obsidian.Obsidian &
+tmux new-session -d -s Development 'time-tracker ; bash -i' \; new-window 'cd /mnt/NAS/1-Project-Related/Project-Source-Directories/; bash -i' \;
+tmux attach-session -t Development
 
-gnome-terminal -- bash -c "/mnt/NAS/1-Project-Related/Project-Source-Directories/Scripts/open-dev-env/open-dev-env-helper.sh; exec bash"
+
